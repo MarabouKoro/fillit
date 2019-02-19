@@ -6,7 +6,7 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/16 12:32:59 by jcreux            #+#    #+#             */
-/*   Updated: 2019/02/19 03:45:28 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/02/20 00:21:18 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,9 @@ static int	valid_line(char *line)
 		}
 	return (1);
 }
+
+//valid_tetriminos
+
 /*
 int			file_checker()
 {
@@ -74,4 +77,4 @@ int			file_checker()
 		i++;
 	}
 }
-*/
+*/	
