@@ -6,7 +6,7 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 02:15:41 by jcreux            #+#    #+#             */
-/*   Updated: 2019/02/22 04:11:39 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/02/23 21:29:44 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define FILLIT_H
 
 # include "libft/libft.h"
-
-# define BUFF_SIZE 1
 
 /*
 ** definition des patterns de tetriminos
