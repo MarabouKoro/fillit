@@ -5,6 +5,9 @@
 #include "libft/libft.h"
 #include "fillit.h"
 
+#include <stdlib.h>
+#include "valid_line.c"
+
 int		main(int ac, char **av)
 {
 	int		fd = open(av[1], O_RDONLY);
@@ -19,7 +22,7 @@ int		main(int ac, char **av)
 		printf("%d -- %s\n", i+1, tab[i]);
 		i++;
 	}
-*/
+
 	int		i = 0;
 	int		line = 21;
 	int		*tab = count_tetri(array_maker(fd));
@@ -31,6 +34,19 @@ int		main(int ac, char **av)
 		printf("%d -- %d\n", line, tab[i]);
 		line++;
 		i++;
+	}
+*/
+	char	*line;
+	int		ret;
+	int		ret2;
+
+	if (ac != 2)
+		return (1);
+	while ((ret = ft_read(fd, &line)) > 0)
+	{
+		ret2 = valid_line(line);
+		printf("%d -- %s", ret2, line);
+		free(line);
 	}
 
 	close(fd);
