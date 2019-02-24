@@ -1,51 +1,42 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <fcntl.h>
+
 #include "libft/libft.h"
 #include "fillit.h"
-//#include "file_checker.c"
+
 #include "count_tetri.c"
-
-#include <fcntl.h>
-#include <stdlib.h>
 #include "read.c"
+#include "array_tetri.c"
 
-int		main(void)
+int		main(int ac, char **av)
 {
-// "....\n."
-
-//	char	*s1 = "##..\n";
-//	char	*s2 = "....\n";
-//	char	*s3 = "....\n";
-//	char	*s4 = ".##.\n";
-//	char	*s5 = "\n";
-	
-//	printf("%d -- %s\n", valid_line(s1), s1);
-//	printf("%d -- %s\n", valid_line(s2), s2);
-//	printf("%d -- %s\n", valid_line(s3), s3);
-//	printf("%d -- %s\n", valid_line(s4), s4);
-//	printf("%d -- %s\n", valid_line(s5), s5);	// nb_line = 4 && nb_diese = 4
-
+	int		fd = open(av[1], O_RDONLY);
 /*
-	static char	*test[22] = {O, I, IR, T, TR, HL, HR, S, Z, AL, AR, L, LR, J, JR, L2, L2R, J2, J2R};
-	int		*tab = count_tetri(test);
+	char	**tab = array_maker(fd);
 	int		i = 0;
-	int		j = 21;
 
-	while (i < 19)
-		printf("%d -- %d\n", j++, tab[i++]);
-	return (0);
-*/
-
-	int		fd = open("text.txt", O_RDONLY);
-	char	*line;
-	int		res;
-
-	while ((res = ft_read(fd, &line)) > 0)
+	if (ac != 2)
+		return (1);
+	while (i < 7)
 	{
-		printf("%d -- %s", res, line);
-		free(line);
+		printf("%d -- %s\n", i+1, tab[i]);
+		i++;
 	}
-	printf("%d\n", res);
+*/
+	int		i = 0;
+	int		line = 21;
+	int		*tab = count_tetri(array_maker(fd));
 
-	close (fd);
+	if (ac != 2)
+		return (1);
+	while (i < 19)
+	{
+		printf("%d -- %d\n", line, tab[i]);
+		line++;
+		i++;
+	}
+
+	close(fd);
 	return (0);
 }
