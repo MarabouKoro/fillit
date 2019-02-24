@@ -45,7 +45,7 @@ int		main(int ac, char **av)
 	while ((ret = ft_read(fd, &line)) > 0)
 	{
 		ret2 = valid_line(line);
-		printf("%d -- %s", ret2, line);
+		printf("%s", line);
 		free(line);
 	}
 
