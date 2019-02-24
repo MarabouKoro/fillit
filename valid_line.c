@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   file_checker.c                                     :+:      :+:    :+:   */
+/*   valid_line.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/16 12:32:59 by jcreux            #+#    #+#             */
-/*   Updated: 2019/02/24 05:34:27 by jcreux           ###   ########.fr       */
+/*   Created: 2019/02/24 19:05:24 by jcreux            #+#    #+#             */
+/*   Updated: 2019/02/24 19:05:29 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int	valid_char(int pos, char c, int nb_line)
 	return (1);
 }
 
-static int	valid_line(char *line)
+int			valid_line(char *line)
 {
 	int			i;
 	static int	nb_line = 0;
