@@ -6,11 +6,12 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 01:51:23 by jcreux            #+#    #+#             */
-/*   Updated: 2019/02/24 00:31:25 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/02/24 05:51:25 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdlib.h>
 #include "fillit.h"
 
 static char	*free_strjoin(char *s1, char *s2)

@@ -6,7 +6,7 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 02:15:41 by jcreux            #+#    #+#             */
-/*   Updated: 2019/02/23 21:29:44 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/02/24 05:53:29 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,9 @@
 # define L2R	"###.#"
 # define J2		"#.###"
 # define J2R	"###...#"
+
+int		ft_read(int fd, char **line);
+int		*count_tetri(char *s[]);
+char	**array_maker(int fd);
 
 #endif

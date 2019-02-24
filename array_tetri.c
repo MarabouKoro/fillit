@@ -6,13 +6,14 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/23 22:20:42 by jcreux            #+#    #+#             */
-/*   Updated: 2019/02/24 04:07:01 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/02/24 05:42:27 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "fillit.h"
 
-char		*tetri_maker(int fd)
+static char	*tetri_maker(int fd)
 {
 	char	*line;
 	char	*str;
@@ -40,14 +41,14 @@ char		*tetri_maker(int fd)
 	return (NULL);
 }
 
-char	**array_maker(int fd)
+char		**array_maker(int fd)
 {
 	char	*str;
 	char	**tab;
 	int		i;
 
 	i = 0;
-	if (!(tab = (char **)malloc(sizeof(char *) * 26))) //malloc trop grand / check fichier de 26 tetris
+	if (!(tab = (char **)malloc(sizeof(char *) * 27))) //malloc trop grand / check fichier de 26 tetris / +1
 		return (NULL);
 	str = tetri_maker(fd);
 	while (str != NULL)

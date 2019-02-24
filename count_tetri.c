@@ -6,12 +6,11 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 22:17:22 by jcreux            #+#    #+#             */
-/*   Updated: 2019/02/22 01:19:12 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/02/24 05:34:00 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include <stdio.h>
 
 static int	find_tetri(char *s)
 {

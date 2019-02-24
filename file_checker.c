@@ -6,9 +6,11 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/16 12:32:59 by jcreux            #+#    #+#             */
-/*   Updated: 2019/02/22 01:24:30 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/02/24 05:34:27 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "fillit.h"
 
 static int	valid_char(int pos, char c, int nb_line)
 {

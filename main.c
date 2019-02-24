@@ -1,13 +1,9 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include <unistd.h>
 #include <fcntl.h>
 
 #include "libft/libft.h"
 #include "fillit.h"
-
-#include "count_tetri.c"
-#include "read.c"
-#include "array_tetri.c"
 
 int		main(int ac, char **av)
 {
@@ -18,7 +14,7 @@ int		main(int ac, char **av)
 
 	if (ac != 2)
 		return (1);
-	while (i < 7)
+	while (tab[i])
 	{
 		printf("%d -- %s\n", i+1, tab[i]);
 		i++;
