@@ -6,13 +6,13 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 19:05:24 by jcreux            #+#    #+#             */
-/*   Updated: 2019/02/28 06:28:46 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/03/01 01:26:29 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		check_diese(char *s, int line)
+static int	check_diese(char *s, int line)
 {
 	int			i;
 	static int	nb_diese = 0;
@@ -29,7 +29,7 @@ int		check_diese(char *s, int line)
 	return (nb_diese);
 }
 
-int		valid_char(int pos, char c, int line)
+static int	valid_char(int pos, char c, int line)
 {
 	if (line >= 0 && line < 4)
 	{
@@ -43,7 +43,7 @@ int		valid_char(int pos, char c, int line)
 	return (1);
 }
 
-int		valid_line(char *s, int line)
+int			valid_line(char *s, int line)
 {
 	int		i;
 	int		nb_diese;

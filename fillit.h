@@ -6,7 +6,7 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 02:15:41 by jcreux            #+#    #+#             */
-/*   Updated: 2019/02/24 05:53:29 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/03/01 01:27:21 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,6 @@
 int		ft_read(int fd, char **line);
 int		*count_tetri(char *s[]);
 char	**array_maker(int fd);
+int		valid_line(char *s, int line);
 
 #endif

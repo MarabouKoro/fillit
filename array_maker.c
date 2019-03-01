@@ -6,7 +6,7 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 19:03:09 by jcreux            #+#    #+#             */
-/*   Updated: 2019/02/24 19:03:21 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/03/01 01:42:18 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,29 @@
 
 static char	*tetri_maker(int fd)
 {
-	char	*line;
-	char	*str;
-	int		i;
-	int		j;
-	int		ret;
+	char		*line;
+	char		*str;
+	int			i;
+	int			j;
+	int			ret;
+	static int	nb_line = 0;
 
 	i = 0;
 	j = 0;
 	str = ft_strnew(16);
 	while ((ret = ft_read(fd, &line)) > 0)
 	{
+		if (valid_line(line, nb_line) == 1)
+			exit(1);
 		if (line[0] == '\n')
+		{
+			nb_line = 0;
 			return (str);
+		}
 		while (i < 4)
 			str[j++] = line[i++];
 		i = 0;
+		nb_line++;
 		if (j == 16)
 			str[j] = '\0';
 	}

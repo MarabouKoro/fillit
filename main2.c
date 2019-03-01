@@ -6,7 +6,7 @@
 
 int		main(void)
 {
-	int		fd = open("unvalid_tetri.txt", O_RDONLY);
+	int		fd = open("valid_tetri.txt", O_RDONLY);
 	char	*line;
 	int		ret;
 	int		nb_line = 0;
