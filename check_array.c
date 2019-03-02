@@ -1,15 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   count_tetri.c                                      :+:      :+:    :+:   */
+/*   check_array.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/21 22:17:22 by jcreux            #+#    #+#             */
-/*   Updated: 2019/02/24 05:34:00 by jcreux           ###   ########.fr       */
+/*   Created: 2019/03/02 23:33:44 by jcreux            #+#    #+#             */
+/*   Updated: 2019/03/02 23:35:51 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "fillit.h"
 
 static int	find_tetri(char *s)
@@ -28,6 +29,7 @@ static int	find_tetri(char *s)
 	return (-1);
 }
 
+/*
 int			*count_tetri(char *s[])
 {
 	int			i;
@@ -41,4 +43,19 @@ int			*count_tetri(char *s[])
 		i++;
 	}
 	return (nb_tetri_array);
+}
+*/
+
+char	**check_array(char **array)
+{
+	int		i;
+
+	i = 0;
+	while (array[i])
+	{
+		if (find_tetri(array[i]) == -1)
+			exit(1);
+		i++;
+	}
+	return (array);
 }

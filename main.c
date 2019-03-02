@@ -5,7 +5,7 @@
 #include "libft/libft.h"
 #include "fillit.h"
 
-#include "count_tetri.c"
+#include "check_array.c"
 #include "array_maker.c"
 #include "valid_line.c"
 #include "read.c"
@@ -26,14 +26,14 @@ int		main(int ac, char **av)
 	}
 */
 	int		i = 0;
-	int		line = 21;
-	int		*tab = count_tetri(array_maker(fd));
+	int		line = 1;
+	char	**tab = check_array(array_maker(fd));
 
 	if (ac != 2)
 		return (1);
-	while (i < 19)
+	while (tab[i])
 	{
-		printf("%d -- %d\n", line, tab[i]);
+		printf("%d -- %s\n", line, tab[i]);
 		line++;
 		i++;
 	}
