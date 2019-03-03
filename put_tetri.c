@@ -6,7 +6,7 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 04:15:06 by jcreux            #+#    #+#             */
-/*   Updated: 2019/03/03 05:15:58 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/03/03 05:59:58 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 char	**put_tetri(char **square, char *tetri, int line, int pos)
 {
 	int		i;
-	int		j;
+	int		init_pos;
 
 	i = 0;
-	j = 0;
+	init_pos = pos;
 	while (tetri[i])
 	{
 		square[line][pos++] = tetri[i++];
-		if (pos == 4)
+		if (i % 4 == 0)
 		{
 			line++;
-			pos = 0;
+			pos = init_pos;
 		}
 	}
 	return (square);
