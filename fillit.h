@@ -6,7 +6,7 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 02:15:41 by jcreux            #+#    #+#             */
-/*   Updated: 2019/03/02 23:34:16 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/03/03 05:09:19 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,20 @@
 # define I		"#...#...#...#"
 # define IR		"####"
 # define T		"###..#"
-# define TR		"#..###"
+# define TR		".#..###"
 # define HL		"#...##..#"
-# define HR		"#..##...#"
-# define S		"##.##"
+# define HR		".#..##...#"
+# define S		".##.##"
 # define Z		"##...##"
-# define AL		"#..##..#"
+# define AL		".#..##..#"
 # define AR		"#...##...#"
 # define L		"#...#...##"
 # define LR		"##..#...#"
-# define J		"#...#..##"
+# define J		".#...#..##"
 # define JR		"##...#...#"
 # define L2		"#...###"
 # define L2R	"###.#"
-# define J2		"#.###"
+# define J2		"..#.###"
 # define J2R	"###...#"
 
 int		ft_read(int fd, char **line);
