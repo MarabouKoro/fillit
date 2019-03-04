@@ -9,40 +9,25 @@
 #include "check_array.c"
 #include "valid_line.c"
 #include "read.c"
-#include "put_tetri.c"
+#include "put_array_tetri.c"
+#include "len_square.c"
 
 int		main(int ac, char **av)
 {
 	int		i = 0;
 	int		fd = open(av[1], O_RDONLY);
-	char	**tab = check_array(array_maker(fd));
-	char	**tab2 = init_square();
-	char	**old_tab2 = tab2;
-	int		line = 0;
-	int		pos = 0;
-	int		letter = 65;
+	char	**tab = init_square();
+	char	**tab2 = check_array(array_maker(fd));
 
 	if (ac != 2)
 		return (1);
+	tab = put_array_tetri(tab, tab2);
 	while (tab[i])
 	{
-		tab2 = put_tetri(tab2, tab[i], line, pos, letter);
-		while (tab2 == NULL)
-		{
-			tab2 = old_tab2;
-			pos++;
-			tab2 = put_tetri(tab2, tab[i], line, pos, letter);
-		}
-		letter++;
-		pos = 0;
+		printf("%s\n", tab[i]);
 		i++;
 	}
-	i = 0;
-	while (tab2[i])
-	{
-		printf("%s\n", tab2[i]);
-		i++;
-	}
+	printf("%d\n", len_square(tab, 8));
 	close(fd);
 	return (0);
 }
