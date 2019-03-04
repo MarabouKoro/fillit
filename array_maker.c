@@ -6,7 +6,7 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 19:03:09 by jcreux            #+#    #+#             */
-/*   Updated: 2019/03/01 01:42:18 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/03/03 22:02:16 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,6 @@ char		**array_maker(int fd)
 		 str = tetri_maker(fd);
 		 i++;
 	}
+	tab[i] = NULL;
 	return (tab);
 }
