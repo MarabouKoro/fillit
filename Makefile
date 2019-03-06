@@ -6,12 +6,14 @@
 #    By: jcreux <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/24 05:29:33 by jcreux            #+#    #+#              #
-#    Updated: 2019/03/06 09:15:41 by thmailla         ###   ########.fr        #
+#    Updated: 2019/03/06 09:57:53 by jcreux           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fillit
+
 CC = gcc
+
 CFLAGS = -Werror -Wextra -Wall
 
 SRCS = valid_line.c \
@@ -22,13 +24,13 @@ SRCS = valid_line.c \
 	   len_square.c \
 	   put_array_tetri.c \
 	   size_tetri.c \
-	   main.c
+	   main3.c
 
 LIB = libft/
+
 FLAGS = -Werror -Wextra -Wall
 
 OBJS = $(SRCS:c=o)
-
 
 all: $(NAME)
 
@@ -36,8 +38,7 @@ all: $(NAME)
 		$(CC) $(CFLAGS) -c -o $@ $<
 
 $(NAME): lib $(OBJS)
-		gcc $(FLAGS) $(OBJS) $(LIB)libft.a -I $(LIB) -o $(NAME)
-		@echo Done.
+		$(CC) $(CFLAGS) $(OBJS) $(LIB)libft.a -I $(LIB) -o $(NAME)
 
 lib:
 		make -C $(LIB)

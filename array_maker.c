@@ -6,7 +6,7 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 19:03:09 by jcreux            #+#    #+#             */
-/*   Updated: 2019/03/03 22:02:16 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/03/06 09:56:59 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,7 @@ char		**array_maker(int fd)
 	int		i;
 
 	i = 0;
-	if (!(tab = (char **)malloc(sizeof(char *) * 27))) //malloc trop grand / check fichier de 26 tetris / +1
-		return (NULL);
+	tab = ft_memalloc(27);
 	str = tetri_maker(fd);
 	while (str != NULL)
 	{

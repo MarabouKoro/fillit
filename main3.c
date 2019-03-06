@@ -4,14 +4,6 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-#include "init_square.c"
-#include "array_maker.c"
-#include "check_array.c"
-#include "valid_line.c"
-#include "read.c"
-#include "put_array_tetri.c"
-#include "len_square.c"
-
 int		main(int ac, char **av)
 {
 	int		i = 0;
