@@ -27,7 +27,7 @@ int		main(int ac, char **av)
 		printf("%s\n", tab[i]);
 		i++;
 	}
-	printf("%d\n", len_square(tab, 1));
+	printf("%d\n", len_square(tab, 26));
 	close(fd);
 	return (0);
 }

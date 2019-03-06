@@ -6,7 +6,7 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 06:02:03 by jcreux            #+#    #+#             */
-/*   Updated: 2019/03/04 06:02:23 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/03/06 08:36:45 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,24 +63,21 @@ char		**put_array_tetri(char **square, char **array_tetri)
 	int		i;
 	int		line;
 	int		pos;
-	int		letter;
 	char	**old_square;
 
 	i = 0;
 	line = 0;
 	pos = 0;
-	letter = 65;
 	old_square = square;
 	while (array_tetri[i])
 	{
-		square = put_tetri(square, array_tetri[i], line, pos, letter);
+		square = put_tetri(square, array_tetri[i], line, pos, 65 + i);
 		while (square == NULL)
 		{
 			square = old_square;
 			pos++;
-			square = put_tetri(square, array_tetri[i], line, pos, letter);
+			square = put_tetri(square, array_tetri[i], line, pos, 65 + i);
 		}
-		letter++;
 		pos = 0;
 		i++;
 	}
