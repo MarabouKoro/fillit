@@ -6,13 +6,13 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 03:45:04 by jcreux            #+#    #+#             */
-/*   Updated: 2019/03/06 14:39:35 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/03/06 19:06:01 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static int	sqrt(int n)
+static int	ft_sqrt(int n)
 {
 	int		i;
 	int		max;
@@ -39,8 +39,8 @@ int			len_square(int nb_tetri)
 	i = 0;
 	while (i >= 0)
 	{
-		if (sqrt(i) > 0 && i >= nb_tetri * 4)
-			return (sqrt(i));
+		if (ft_sqrt(i) > 0 && i >= nb_tetri * 4)
+			return (ft_sqrt(i));
 		i++;
 	}
 	return (0);
