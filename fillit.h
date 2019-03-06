@@ -6,7 +6,7 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 02:15:41 by jcreux            #+#    #+#             */
-/*   Updated: 2019/03/06 11:06:20 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/03/06 15:48:24 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,11 @@ int		ft_read(int fd, char **line);
 int		valid_line(char *s, int line);
 char	**array_maker(int fd);
 char	**check_array(char **array);
-char	**init_square(void);
+char	*init_square(char **array_tetri);
 char	**put_array_tetri(char **square, char **array_tetri);
-int		len_square(char **square, int nb_tetri);
+int		len_square(int nb_tetri);
 int		len_tetri(char *tetri);
 int		width_tetri(char *tetri);
+int		count_tetri(char **array_tetri);
 
 #endif

@@ -6,39 +6,42 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 03:45:04 by jcreux            #+#    #+#             */
-/*   Updated: 2019/03/05 03:06:48 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/03/06 14:39:35 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		len_square(char **square, int nb_tetri)
+static int	sqrt(int n)
 {
 	int		i;
-	int		pos;
-	int		line;
-	int		max_pos;
+	int		max;
 
 	i = 0;
-	pos = 0;
-	line = 0;
-	max_pos = 0;
-	while (i < nb_tetri * 4)
+	max = n / 2;
+	if (n == 1)
+		return (1);
+	while (i <= max)
 	{
-		while (square[line][pos] && i < nb_tetri * 4)
+		if (i * i == n)
 		{
-			if (square[line][pos] != '.')
-			{
-				i++;
-				if (pos > max_pos)
-					max_pos = pos;
-			}
-			pos++;
+			return (i);
 		}
-		line++;
-		pos = 0;
+		i++;
 	}
-	if (max_pos > line)
-		return (max_pos + 1);
-	return (line);
+	return (0);
+}
+
+int			len_square(int nb_tetri)
+{
+	int		i;
+
+	i = 0;
+	while (i >= 0)
+	{
+		if (sqrt(i) > 0 && i >= nb_tetri * 4)
+			return (sqrt(i));
+		i++;
+	}
+	return (0);
 }

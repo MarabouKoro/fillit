@@ -6,7 +6,7 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 06:02:03 by jcreux            #+#    #+#             */
-/*   Updated: 2019/03/06 13:01:21 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/03/06 14:01:00 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,11 @@ char		**put_array_tetri(char **square, char **array_tetri)
 					pos++;
 					square = put_tetri(old_square, array_tetri[i], line, pos, 65 + i);
 				}
-				old_square = square;
 				if (min_len > len_square(square, i + 1))
+				{
 					min_len = len_square(square, i + 1);
+					old_square = square;
+				}
 				pos++;
 			}
 			pos = 0;

@@ -5,39 +5,34 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/06 15:18:32 by jcreux            #+#    #+#             */
-/*   Updated: 2019/03/06 15:56:38 by jcreux           ###   ########.fr       */
+/*   Created: 2019/03/03 02:52:22 by jcreux            #+#    #+#             */
+/*   Updated: 2019/03/06 10:25:21 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "fillit.h"
 
-int		count_tetri(char **array_tetri)
+char	**init_square(void)
 {
 	int		i;
+	int		j;
+	char	*line;
+	char	**square;
 
 	i = 0;
-	while (array_tetri[i])
-		i++;
-	return (i);
-}
-
-char	*init_square(char **array_tetri)
-{
-	int		i;
-	int		len;
-	char	*square;
-
-	i = 0;
-	len = len_square(count_tetri(array_tetri));
-	if (!(square = (char *)malloc(sizeof(char) * ((len * len) + 1))))
+	if (!(square = (char **)malloc(sizeof(char *) * 105)))
 		return (NULL);
-	while (i < (len * len))
+	while (i < 104)
 	{
-		square[i] = '.';
+		j = 0;
+		line = ft_strnew(105);
+		while (j < 104)
+			line[j++] = '.';
+		line[j] = '\0';
+		square[i] = line;
 		i++;
 	}
-	square[i] = '\0';
+	square[i] = NULL;
 	return (square);
 }
