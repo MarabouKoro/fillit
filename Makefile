@@ -6,7 +6,7 @@
 #    By: jcreux <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/24 05:29:33 by jcreux            #+#    #+#              #
-#    Updated: 2019/03/06 15:44:58 by jcreux           ###   ########.fr        #
+#    Updated: 2019/03/06 17:01:57 by jcreux           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ SRCS = valid_line.c \
 	   init_square.c \
 	   len_square.c \
 	   size_tetri.c \
-	   main4.c
+	   solve.c \
+	   main3.c
 
 LIB = libft/
 
