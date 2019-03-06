@@ -6,7 +6,7 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 02:52:22 by jcreux            #+#    #+#             */
-/*   Updated: 2019/03/03 05:06:02 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/03/06 10:25:21 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ char	**init_square(void)
 	char	**square;
 
 	i = 0;
-	if (!(square = (char **)malloc(sizeof(char *) * 105)))	//free(square) ?
+	if (!(square = (char **)malloc(sizeof(char *) * 105)))
 		return (NULL);
 	while (i < 104)
 	{
 		j = 0;
-		line = ft_strnew(105);								//free(line) ?
+		line = ft_strnew(105);
 		while (j < 104)
 			line[j++] = '.';
 		line[j] = '\0';

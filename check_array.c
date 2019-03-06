@@ -6,7 +6,7 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/02 23:33:44 by jcreux            #+#    #+#             */
-/*   Updated: 2019/03/03 01:46:45 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/03/06 10:24:48 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,23 +28,6 @@ static int	find_tetri(char *s)
 	}
 	return (-1);
 }
-
-/*
-int			*count_tetri(char *s[])
-{
-	int			i;
-	static int	nb_tetri_array[19] = {0};
-
-	i = 0;
-	while (s[i])
-	{
-		if (find_tetri(s[i]) != -1)
-			nb_tetri_array[find_tetri(s[i])]++;
-		i++;
-	}
-	return (nb_tetri_array);
-}
-*/
 
 char	**check_array(char **array)
 {
