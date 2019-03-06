@@ -6,7 +6,7 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 16:10:11 by jcreux            #+#    #+#             */
-/*   Updated: 2019/03/06 17:21:51 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/03/06 17:48:46 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,13 @@ char		**solve(char **square, char **array_tetri)
 	int		pos;
 	int		line;
 	int		len;
-	int		a = 0;
+	int		a;
 
 	i = 0;
 	pos = 0;
 	line = 0;
 	len = len_square(count_tetri(array_tetri));
+	a = 0;
 	while (array_tetri[i])
 	{
 		while (line + width_tetri(array_tetri[i]) <= len)
