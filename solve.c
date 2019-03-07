@@ -6,7 +6,7 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 16:10:11 by jcreux            #+#    #+#             */
-/*   Updated: 2019/03/06 17:48:46 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/03/07 17:12:36 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,37 +58,87 @@ static char	**put_tetri(char **square, char *tetri, int line, int pos, int lette
 	return (square);
 }
 
-char		**solve(char **square, char **array_tetri)
+static char **remove_tetri(char **square, int letter)
+{
+	int		line;
+	int		pos;
+
+	line = 0;
+	pos = 0;
+	while (square[line])
+	{
+		while (square[line][pos])
+		{
+			if (square[line][pos] == letter)
+				square[line][pos] = '.';
+			pos++;
+		}
+		pos = 0;
+		line++;
+	}
+	return (square);
+}
+
+static char	**move_tetri(char **square, int letter)
+{
+	int		line;
+	int		pos;
+	int		a;
+
+	line = 0;
+	pos = 0;
+	a = 0;
+	while (square[line])
+	{
+		while (square[line][pos])
+		{
+			if (square[line][pos] == letter)	
+				a = 1;
+			if (a == 1)
+				break;
+			pos++;
+		}
+		if (a == 1)
+			break;
+		pos = 0;
+		line++;
+	}
+	return (square);
+}
+
+char		**solve(char **square, char **array)
 {
 	int		i;
 	int		pos;
 	int		line;
-	int		len;
-	int		a;
+	int		size;
 
 	i = 0;
 	pos = 0;
 	line = 0;
-	len = len_square(count_tetri(array_tetri));
-	a = 0;
-	while (array_tetri[i])
+	while (array[i])
 	{
-		while (line + width_tetri(array_tetri[i]) <= len)
+		size = len_square(count_tetri(array));
+		while (line + width_tetri(array[i]) <= size)
 		{
-			while (pos + len_tetri(array_tetri[i]) <= len)
+			while (pos + len_tetri(array[i]) <= size)
 			{
-				if (check_space(square, array_tetri[i], line, pos) == 0 && a == 0)
+				if (check_space(square, array[i], line, pos) == 0)
 				{
-					square = put_tetri(square, array_tetri[i], line, pos, 65 + i);
-					a = 1;
+					square = put_tetri(square, array[i], line, pos, 65 + i);
+					size = -1;
 				}
 				pos++;
 			}
 			pos = 0;
 			line++;
 		}
-		a = 0;
 		line = 0;
+		if (size != -1)
+		{
+			i--;
+			square = move_tetri(square, 65 + i);
+		}
 		i++;
 	}
 	return (square);
