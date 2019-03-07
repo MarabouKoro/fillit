@@ -6,7 +6,7 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 02:15:41 by jcreux            #+#    #+#             */
-/*   Updated: 2019/03/06 17:01:44 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/03/07 19:58:25 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,24 @@
 # define J2		"..#.###"
 # define J2R	"###...#"
 
-int		ft_read(int fd, char **line);
-int		valid_line(char *s, int line);
-char	**array_maker(int fd);
-char	**check_array(char **array);
-char	**init_square(char **array_tetri);
-char	**solve(char **square, char **array_tetri);
-int		len_square(int nb_tetri);
-int		len_tetri(char *tetri);
-int		width_tetri(char *tetri);
-int		count_tetri(char **array_tetri);
+typedef struct	s_list
+{
+	char	*line;
+	char	*str;
+	int		i;
+	int		j;
+	int		ret;
+}				t_struct;
+
+int				ft_read(int fd, char **line);
+int				valid_line(char *s, int line);
+char			**array_maker(int fd);
+char			**check_array(char **array);
+char			**init_square(char **array_tetri);
+char			**solve(char **square, char **array_tetri);
+int				len_square(int nb_tetri);
+int				len_tetri(char *tetri);
+int				width_tetri(char *tetri);
+int				count_tetri(char **array_tetri);
 
 #endif

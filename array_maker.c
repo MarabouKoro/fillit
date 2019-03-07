@@ -6,7 +6,7 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 19:03:09 by jcreux            #+#    #+#             */
-/*   Updated: 2019/03/07 18:38:29 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/03/07 20:02:06 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,35 +15,27 @@
 
 static char	*tetri_maker(int fd)
 {
-	char		*line;
-	char		*str;
-	int			i;
-	int			j;
-	int			ret;
+	t_struct	st;
 	static int	nb_line = 0;
 
-	i = 0;
-	j = 0;
-	str = ft_strnew(16);
-	while ((ret = ft_read(fd, &line)) > 0)
+	st.j = 0;
+	st.str = ft_strnew(16);
+	while ((st.ret = ft_read(fd, &st.line)) > 0)
 	{
-		if (valid_line(line, nb_line) == 1)
+		st.i = 0;
+		if (valid_line(st.line, nb_line) == 1)
 			exit(1);
-		if (line[0] == '\n')
-		{
-			nb_line = 0;
-			return (str);
-		}
-		while (i < 4)
-			str[j++] = line[i++];
-		i = 0;
+		if (st.line[0] == '\n' && (nb_line = 0) == 0)
+			return (st.str);
+		while (st.i < 4)
+			st.str[st.j++] = st.line[st.i++];
 		nb_line++;
-		if (j == 16)
-			str[j] = '\0';
+		if (st.j == 16)
+			st.str[st.j] = '\0';
 	}
-	if (str[0] != '\0')
-		return (str);
-	if (ret == -1)
+	if (st.str[0] != '\0')
+		return (st.str);
+	if (st.ret == -1)
 		exit(1);
 	return (NULL);
 }
