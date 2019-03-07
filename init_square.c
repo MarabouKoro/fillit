@@ -6,7 +6,7 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 15:18:32 by jcreux            #+#    #+#             */
-/*   Updated: 2019/03/06 16:57:07 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/03/07 18:45:35 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,10 @@ char	**init_square(char **array_tetri)
 		if (!(s = (char *)malloc(sizeof(char) * (len + 2))))
 			return (NULL);
 		while (j < len)
-		{
-			s[j] = '.';
-			j++;
-		}
+			s[j++] = '.';
 		s[j++] = '\n';
 		s[j] = '\0';
-		square[i] = s;
-		i++;
+		square[i++] = s;
 	}
 	square[i] = NULL;
 	return (square);

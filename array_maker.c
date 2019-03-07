@@ -6,7 +6,7 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 19:03:09 by jcreux            #+#    #+#             */
-/*   Updated: 2019/03/06 10:26:15 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/03/07 18:38:29 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,9 @@ char		**array_maker(int fd)
 	str = tetri_maker(fd);
 	while (str != NULL)
 	{
-		 tab[i] = str;
-		 str = tetri_maker(fd);
-		 i++;
+		tab[i] = str;
+		str = tetri_maker(fd);
+		i++;
 	}
 	tab[i] = NULL;
 	return (tab);
