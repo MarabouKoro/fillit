@@ -6,7 +6,7 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 16:10:11 by jcreux            #+#    #+#             */
-/*   Updated: 2019/03/08 17:05:16 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/03/08 23:20:13 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,19 +79,19 @@ static char	**remove_tetri(char **square, int letter)
 	return (square);
 }
 
-char		**solve(char **square, char **array)
+static char	**solve(char **square, char **array, int size)
 {
 	int		i;
 	int		pos;
 	int		line;
-	int		size;
+	int		init_size;
 
 	i = 0;
 	pos = 0;
 	line = 0;
+	init_size = size;
 	while (array[i])
 	{
-		size = len_square(count_tetri(array));
 		while (line + width_tetri(array[i]) <= size)
 		{
 			while (pos + len_tetri(array[i]) <= size)
@@ -110,6 +110,8 @@ char		**solve(char **square, char **array)
 		if (size != -1)
 		{
 			i--;
+			if (find_pos(square, 65 + i) == -1)
+				return (NULL);
 			if (find_pos(square, 65 + i) + len_tetri(array[i]) > size)
 			{
 				pos = 0;
@@ -124,6 +126,24 @@ char		**solve(char **square, char **array)
 		}
 		if (size == -1)
 			i++;
+		size = init_size;
 	}
 	return (square);
+}
+
+char	**final_square(char **square, char **array)
+{
+	int		size;
+	int		last_letter;
+	char	**final_square;
+
+	size = len_square(count_tetri(array));
+	last_letter = 65 + count_tetri(array) - 1;
+	final_square = solve(square, array, size);
+	while (final_square == NULL)
+	{
+		size++;
+		final_square = solve(new_square(size), array, size);
+	}
+	return (final_square);
 }

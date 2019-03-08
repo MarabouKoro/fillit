@@ -6,7 +6,7 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 19:03:09 by jcreux            #+#    #+#             */
-/*   Updated: 2019/03/08 17:07:42 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/03/09 00:30:19 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@ static char	*tetri_maker(int fd)
 		if (st.j == 16)
 			st.str[st.j] = '\0';
 	}
+	if (st.ret == -1 || st.line[0] == '\n')
+		error();
 	if (st.str[0] != '\0')
 		return (st.str);
-	if (st.ret == -1)
-		error();
 	return (NULL);
 }
 

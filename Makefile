@@ -6,7 +6,7 @@
 #    By: jcreux <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/24 05:29:33 by jcreux            #+#    #+#              #
-#    Updated: 2019/03/08 15:41:47 by jcreux           ###   ########.fr        #
+#    Updated: 2019/03/08 21:08:23 by jcreux           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRCS = valid_line.c \
 	   len_square.c \
 	   size_tetri.c \
 	   find_coords.c \
+	   new_square.c \
 	   solve.c \
 	   main.c
 

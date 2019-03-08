@@ -6,7 +6,7 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 01:51:23 by jcreux            #+#    #+#             */
-/*   Updated: 2019/03/07 12:40:08 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/03/09 00:28:12 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,14 @@ int			ft_read(int fd, char **line)
 	int			n;
 	char		buffer[2];
 	char		*tmp;
+	int			check;
 
+	check = 0;
 	if (fd < 0 || line == NULL || (tmp = ft_memalloc(1)) == NULL)
 		return (-1);
 	while ((n = read(fd, buffer, 1)) > 0)
 	{
+		check = 1;
 		buffer[1] = '\0';
 		if (buffer[0] == '\n')
 		{
