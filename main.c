@@ -6,7 +6,7 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/08 15:30:57 by jcreux            #+#    #+#             */
-/*   Updated: 2019/03/08 16:28:13 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/03/08 17:14:07 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 #include <unistd.h>
 #include "fillit.h"
 
-void	usage(char *str)
+static void	usage(char *str)
 {
 	write(1, "usage: ", 7);
 	write(1, str, ft_strlen(str));
 	write(1, " file\n", 6);
 }
 
-int		main(int ac, char **av)
+int			main(int ac, char **av)
 {
 	int		pos;
 	int		line;
@@ -42,10 +42,7 @@ int		main(int ac, char **av)
 	while (square[line])
 	{
 		while (square[line][pos])
-		{
-			write(1, &square[line][pos], 1);
-			pos++;
-		}
+			write(1, &square[line][pos++], 1);
 		pos = 0;
 		line++;
 	}

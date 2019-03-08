@@ -6,7 +6,7 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 16:10:11 by jcreux            #+#    #+#             */
-/*   Updated: 2019/03/08 15:03:08 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/03/08 17:05:16 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static char	**put_tetri(char **square, char *tetri, int line, int pos, int lette
 	return (square);
 }
 
-static char **remove_tetri(char **square, int letter)
+static char	**remove_tetri(char **square, int letter)
 {
 	int		line;
 	int		pos;
@@ -78,53 +78,7 @@ static char **remove_tetri(char **square, int letter)
 	}
 	return (square);
 }
-/*
-static char	**move_tetri(char **square, char *tetri, int letter)
-{
-	int		line;
-	int		pos;
-	int		a;
-	char	**old_square;
-	int		i;
-	int		init_pos;
 
-	line = 0;
-	pos = 0;
-	a = 0;
-	i = 0;
-	while (square[line])
-	{
-		while (square[line][pos])
-		{
-			if (square[line][pos] == letter)	
-				a = 1;
-			if (a == 1)
-				break;
-			pos++;
-		}
-		if (a == 1)
-			break;
-		pos = 0;
-		line++;
-	}
-	square = remove_tetri(square, letter);
-	old_square = square;
-	init_pos = pos;
-	while ((square = put_tetri(old_square, tetri, line, pos, letter)) == NULL)
-	{
-		pos++;
-		if (i == 4)
-		{
-			pos = init_pos;
-			line++;
-			i = 0;
-		}
-		i++;
-
-	}
-	return (square);
-}
-*/
 char		**solve(char **square, char **array)
 {
 	int		i;

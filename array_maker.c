@@ -6,13 +6,19 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 19:03:09 by jcreux            #+#    #+#             */
-/*   Updated: 2019/03/08 15:52:28 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/03/08 17:07:42 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <unistd.h>
 #include "fillit.h"
+
+static void	error(void)
+{
+	write(1, "error\n", 6);
+	exit(1);
+}
 
 static char	*tetri_maker(int fd)
 {
@@ -25,10 +31,7 @@ static char	*tetri_maker(int fd)
 	{
 		st.i = 0;
 		if (valid_line(st.line, nb_line) == 1)
-		{
-			write(1, "error\n", 6);
-			exit(1);
-		}
+			error();
 		if (st.line[0] == '\n' && (nb_line = 0) == 0)
 			return (st.str);
 		while (st.i < 4)
@@ -40,10 +43,7 @@ static char	*tetri_maker(int fd)
 	if (st.str[0] != '\0')
 		return (st.str);
 	if (st.ret == -1)
-	{
-		write(1, "error\n", 6);
-		exit(1);
-	}
+		error();
 	return (NULL);
 }
 
