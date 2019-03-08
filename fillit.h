@@ -6,7 +6,7 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 02:15:41 by jcreux            #+#    #+#             */
-/*   Updated: 2019/03/07 19:58:25 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/03/08 14:09:45 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,7 @@ int				len_square(int nb_tetri);
 int				len_tetri(char *tetri);
 int				width_tetri(char *tetri);
 int				count_tetri(char **array_tetri);
+int				find_pos(char **square, int letter);
+int				find_line(char **square, int letter);
 
 #endif

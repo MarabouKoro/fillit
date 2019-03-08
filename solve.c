@@ -6,7 +6,7 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 16:10:11 by jcreux            #+#    #+#             */
-/*   Updated: 2019/03/07 18:20:52 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/03/08 15:03:08 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ static char **remove_tetri(char **square, int letter)
 	}
 	return (square);
 }
-
+/*
 static char	**move_tetri(char **square, char *tetri, int letter)
 {
 	int		line;
@@ -124,7 +124,7 @@ static char	**move_tetri(char **square, char *tetri, int letter)
 	}
 	return (square);
 }
-
+*/
 char		**solve(char **square, char **array)
 {
 	int		i;
@@ -156,9 +156,20 @@ char		**solve(char **square, char **array)
 		if (size != -1)
 		{
 			i--;
-			square = move_tetri(square, array[i], 65 + i);
+			if (find_pos(square, 65 + i) + len_tetri(array[i]) > size)
+			{
+				pos = 0;
+				line = find_line(square, 65 + i) + 1;
+			}
+			else
+			{
+				pos = find_pos(square, 65 + i) + 1;
+				line = find_line(square, 65 + i);
+			}
+			square = remove_tetri(square, 65 + i);
 		}
-		i++;
+		if (size == -1)
+			i++;
 	}
 	return (square);
 }

@@ -1,54 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   find_coords.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/08 15:30:57 by jcreux            #+#    #+#             */
-/*   Updated: 2019/03/08 16:28:13 by jcreux           ###   ########.fr       */
+/*   Created: 2019/03/08 13:28:58 by jcreux            #+#    #+#             */
+/*   Updated: 2019/03/08 14:01:18 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h>
-#include <unistd.h>
 #include "fillit.h"
 
-void	usage(char *str)
-{
-	write(1, "usage: ", 7);
-	write(1, str, ft_strlen(str));
-	write(1, " file\n", 6);
-}
-
-int		main(int ac, char **av)
+int		find_pos(char **square, int letter)
 {
 	int		pos;
 	int		line;
-	int		fd;
-	char	**tab;
-	char	**square;
 
 	pos = 0;
 	line = 0;
-	fd = open(av[1], O_RDONLY);
-	if (ac != 2)
-	{
-		usage(av[0]);
-		return (1);
-	}
-	tab = check_array(array_maker(fd));
-	square = solve(init_square(tab), tab);
 	while (square[line])
 	{
 		while (square[line][pos])
 		{
-			write(1, &square[line][pos], 1);
+			if (square[line][pos] == letter)
+				return (pos);
 			pos++;
 		}
 		pos = 0;
 		line++;
 	}
-	close(fd);
-	return (0);
+	return (-1);
+}
+
+int		find_line(char **square, int letter)
+{
+	int		pos;
+	int		line;
+
+	pos = 0;
+	line = 0;
+	while (square[line])
+	{
+		while (square[line][pos])
+		{
+			if (square[line][pos] == letter)
+				return (line);
+			pos++;
+		}
+		pos = 0;
+		line++;
+	}
+	return (-1);
 }
