@@ -6,7 +6,7 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/08 13:28:58 by jcreux            #+#    #+#             */
-/*   Updated: 2019/03/08 14:01:18 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/03/09 18:00:56 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,27 @@
 
 int		find_pos(char **square, int letter)
 {
+	int		i;
 	int		pos;
 	int		line;
+	int		ret;
 
+	i = 0;
 	pos = 0;
 	line = 0;
+	ret = 10;
 	while (square[line])
 	{
 		while (square[line][pos])
 		{
 			if (square[line][pos] == letter)
-				return (pos);
+			{
+				if (pos < ret)
+					ret = pos;
+				i++;
+			}
+			if (i == 4)
+				return (ret);
 			pos++;
 		}
 		pos = 0;
