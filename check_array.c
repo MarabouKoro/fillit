@@ -6,7 +6,7 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/02 23:33:44 by jcreux            #+#    #+#             */
-/*   Updated: 2019/03/08 15:52:58 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/03/09 15:58:12 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,7 @@ char		**check_array(char **array)
 	while (array[i])
 	{
 		if (find_tetri(array[i]) == -1)
-		{
-			write(1, "error\n", 6);
-			exit(1);
-		}
+			error();
 		array[i] = tetri_array[find_tetri(array[i])];
 		i++;
 	}

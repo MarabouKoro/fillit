@@ -6,7 +6,7 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/24 19:03:09 by jcreux            #+#    #+#             */
-/*   Updated: 2019/03/09 00:30:19 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/03/09 15:57:48 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <unistd.h>
 #include "fillit.h"
 
-static void	error(void)
+void		error(void)
 {
 	write(1, "error\n", 6);
 	exit(1);
@@ -49,9 +49,9 @@ static char	*tetri_maker(int fd)
 
 char		**array_maker(int fd)
 {
+	int		i;
 	char	*str;
 	char	**tab;
-	int		i;
 
 	i = 0;
 	tab = ft_memalloc(27);

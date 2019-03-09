@@ -6,7 +6,7 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 02:15:41 by jcreux            #+#    #+#             */
-/*   Updated: 2019/03/08 21:42:23 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/03/09 15:59:05 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,6 @@ int				find_pos(char **square, int letter);
 int				find_line(char **square, int letter);
 char			**final_square(char **square, char **array);
 char			**new_square(int size);
+void			error(void);
 
 #endif
