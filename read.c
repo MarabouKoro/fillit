@@ -6,7 +6,7 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 01:51:23 by jcreux            #+#    #+#             */
-/*   Updated: 2019/03/09 15:57:33 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/03/09 16:39:50 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int			ft_read(int fd, char **line)
 	int			n;
 	char		buffer[2];
 	char		*tmp;
-	int static	check = 0;
+	static int	check = 0;
 
 	if (fd < 0 || line == NULL || (tmp = ft_memalloc(1)) == NULL)
 		return (-1);

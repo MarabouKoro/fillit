@@ -6,7 +6,7 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 16:10:11 by jcreux            #+#    #+#             */
-/*   Updated: 2019/03/08 23:20:13 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/03/09 16:21:11 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,11 +134,9 @@ static char	**solve(char **square, char **array, int size)
 char	**final_square(char **square, char **array)
 {
 	int		size;
-	int		last_letter;
 	char	**final_square;
 
 	size = len_square(count_tetri(array));
-	last_letter = 65 + count_tetri(array) - 1;
 	final_square = solve(square, array, size);
 	while (final_square == NULL)
 	{

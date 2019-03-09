@@ -6,11 +6,10 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/02 23:33:44 by jcreux            #+#    #+#             */
-/*   Updated: 2019/03/09 15:58:12 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/03/09 16:05:26 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include <unistd.h>
 #include "fillit.h"
 
