@@ -6,7 +6,7 @@
 #    By: jcreux <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/24 05:29:33 by jcreux            #+#    #+#              #
-#    Updated: 2019/03/10 19:18:19 by jcreux           ###   ########.fr        #
+#    Updated: 2019/03/10 22:11:50 by jcreux           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = fillit
 
 CC = gcc
 
-CFLAGS = -Werror -Wextra -Wall
+CFLAGS = -Werror -Wextra -Wall -g
 
 SRCS = valid_line.c \
 	   read.c \
@@ -30,8 +30,6 @@ SRCS = valid_line.c \
 	   main.c
 
 LIB = libft/
-
-FLAGS = -Werror -Wextra -Wall
 
 OBJS = $(SRCS:c=o)
 

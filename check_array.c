@@ -6,10 +6,11 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/02 23:33:44 by jcreux            #+#    #+#             */
-/*   Updated: 2019/03/10 17:29:23 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/03/10 22:27:17 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include <unistd.h>
 #include "fillit.h"
 
@@ -32,6 +33,7 @@ int			find_tetri(char *s)
 char		**check_array(char **array)
 {
 	int			i;
+	char		*tmp;
 	static char	*tetri_array[19] = {O, I, IR, T, TR, HL, HR, S, Z, AL,
 									AR, L, LR, J, JR, L2, L2R, J2, J2R};
 
@@ -40,7 +42,9 @@ char		**check_array(char **array)
 	{
 		if (find_tetri(array[i]) == -1)
 			error();
+		tmp = array[i];
 		array[i] = tetri_array[find_tetri(array[i])];
+		free(tmp);
 		i++;
 	}
 	return (array);

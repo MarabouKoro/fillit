@@ -6,7 +6,7 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 01:51:23 by jcreux            #+#    #+#             */
-/*   Updated: 2019/03/10 17:21:17 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/03/10 22:44:35 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int			ft_read(int fd, char **line)
 	}
 	if (n == -1)
 		return (-1);
-	if (buffer[0] == '\0' && check == 0)
+	if (check == 0)
 		error();
 	if (n == 0 && tmp[0] != '\0')
 		return (ft_ret(tmp, line));

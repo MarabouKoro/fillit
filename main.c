@@ -6,10 +6,11 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/08 15:30:57 by jcreux            #+#    #+#             */
-/*   Updated: 2019/03/09 15:49:40 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/03/10 22:26:53 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include <fcntl.h>
 #include <unistd.h>
 #include "fillit.h"
@@ -29,7 +30,6 @@ int			main(int ac, char **av)
 	char	**tab;
 	char	**square;
 
-	pos = 0;
 	line = 0;
 	fd = open(av[1], O_RDONLY);
 	if (ac != 2)
@@ -39,13 +39,16 @@ int			main(int ac, char **av)
 	}
 	tab = check_array(array_maker(fd));
 	square = final_square(init_square(tab), tab);
+	free(tab);
 	while (square[line])
 	{
+		pos = 0;
 		while (square[line][pos])
 			write(1, &square[line][pos++], 1);
-		pos = 0;
+		free(square[line]);
 		line++;
 	}
+	free(square);
 	close(fd);
 	return (0);
 }
