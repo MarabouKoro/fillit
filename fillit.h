@@ -6,7 +6,7 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 02:15:41 by jcreux            #+#    #+#             */
-/*   Updated: 2019/03/09 15:59:05 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/03/10 19:36:30 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,9 @@
 # define J2		"..#.###"
 # define J2R	"###...#"
 
+/*
+** declaration des structures
+*/
 typedef struct	s_list
 {
 	char	*line;
@@ -47,6 +50,17 @@ typedef struct	s_list
 	int		ret;
 }				t_struct;
 
+typedef struct	s_list2
+{
+	int		i;
+	int		init_size;
+	int		pos;
+	int		line;
+}				t_struct2;
+
+/*
+** prototypes des fonctions
+*/
 int				ft_read(int fd, char **line);
 int				valid_line(char *s, int line);
 char			**array_maker(int fd);
@@ -61,5 +75,7 @@ int				find_line(char **square, int letter);
 char			**final_square(char **square, char **array);
 char			**new_square(int size);
 void			error(void);
+int				find_tetri(char *s);
+int				cs(char **square, char *tetri, int line, int pos);
 
 #endif

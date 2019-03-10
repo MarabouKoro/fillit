@@ -6,7 +6,7 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 01:51:23 by jcreux            #+#    #+#             */
-/*   Updated: 2019/03/09 16:39:50 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/03/10 17:21:17 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,12 @@ static char	*free_strjoin(char *s1, char *s2)
 	return (str);
 }
 
+int			ft_ret(char *s, char **line)
+{
+	*line = s;
+	return (1);
+}
+
 int			ft_read(int fd, char **line)
 {
 	int			n;
@@ -37,22 +43,15 @@ int			ft_read(int fd, char **line)
 		check = 1;
 		buffer[1] = '\0';
 		if (buffer[0] == '\n')
-		{
-			*line = free_strjoin(tmp, buffer);
-			return (1);
-		}
+			return (ft_ret(free_strjoin(tmp, buffer), line));
 		tmp = free_strjoin(tmp, buffer);
 	}
-	if (buffer[0] == '\0' && check == 0)
-		error();
-	check = 1;
-	if (n == 0 && tmp[0] != '\0')
-	{
-		*line = tmp;
-		return (1);
-	}
-	free(tmp);
 	if (n == -1)
 		return (-1);
+	if (buffer[0] == '\0' && check == 0)
+		error();
+	if (n == 0 && tmp[0] != '\0')
+		return (ft_ret(tmp, line));
+	free(tmp);
 	return (0);
 }

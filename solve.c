@@ -6,53 +6,31 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 16:10:11 by jcreux            #+#    #+#             */
-/*   Updated: 2019/03/09 16:21:11 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/03/10 19:37:05 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static int	check_space(char **square, char *tetri, int line, int pos)
+static char	**put_tetri(char **square, char *tetri, t_struct2 *st, int letter)
 {
-	int		i;
-	int		init_pos;
+	int			i;
+	int			init_pos;
 
 	i = 0;
-	init_pos = pos;
-	while (tetri[i])
-	{
-		if (tetri[i] == '#' && square[line][pos] != '.')
-			return (1);
-		pos++;
-		i++;
-		if (i % 4 == 0)
-		{
-			line++;
-			pos = init_pos;
-		}
-	}
-	return (0);
-}
-
-static char	**put_tetri(char **square, char *tetri, int line, int pos, int letter)
-{
-	int		i;
-	int		init_pos;
-
-	i = 0;
-	init_pos = pos;
-	if (check_space(square, tetri, line, pos) == 1)
+	init_pos = st->pos;
+	if (cs(square, tetri, st->line, st->pos) == 1)
 		return (NULL);
 	while (tetri[i])
 	{
 		if (tetri[i] != '.')
-			square[line][pos] = letter;
-		pos++;
+			square[st->line][st->pos] = letter;
+		st->pos++;
 		i++;
 		if (i % 4 == 0)
 		{
-			line++;
-			pos = init_pos;
+			st->line++;
+			st->pos = init_pos;
 		}
 	}
 	return (square);
@@ -79,59 +57,60 @@ static char	**remove_tetri(char **square, int letter)
 	return (square);
 }
 
-static char	**solve(char **square, char **array, int size)
+static char	**cant_put(char **square, char **array, t_struct2 *st, int size)
 {
-	int		i;
-	int		pos;
-	int		line;
-	int		init_size;
-
-	i = 0;
-	pos = 0;
-	line = 0;
-	init_size = size;
-	while (array[i])
+	st->line = 0;
+	if (size != 0)
 	{
-		while (line + width_tetri(array[i]) <= size)
+		st->i--;
+		if (find_pos(square, 65 + st->i) == -1)
+			return (NULL);
+		if (find_pos(square, 65 + st->i) + len_tetri(array[st->i]) > size)
 		{
-			while (pos + len_tetri(array[i]) <= size)
-			{
-				if (check_space(square, array[i], line, pos) == 0)
-				{
-					square = put_tetri(square, array[i], line, pos, 65 + i);
-					size = -1;
-				}
-				pos++;
-			}
-			pos = 0;
-			line++;
+			st->pos = 0;
+			st->line = find_line(square, 65 + st->i) + 1;
 		}
-		line = 0;
-		if (size != -1)
+		else
 		{
-			i--;
-			if (find_pos(square, 65 + i) == -1)
-				return (NULL);
-			if (find_pos(square, 65 + i) + len_tetri(array[i]) > size)
-			{
-				pos = 0;
-				line = find_line(square, 65 + i) + 1;
-			}
-			else
-			{
-				pos = find_pos(square, 65 + i) + 1;
-				line = find_line(square, 65 + i);
-			}
-			square = remove_tetri(square, 65 + i);
+			st->pos = find_pos(square, 65 + st->i) + 1;
+			st->line = find_line(square, 65 + st->i);
 		}
-		if (size == -1)
-			i++;
-		size = init_size;
+		square = remove_tetri(square, 65 + st->i);
 	}
+	if (size == 0)
+		st->i++;
 	return (square);
 }
 
-char	**final_square(char **square, char **array)
+static char	**solve(char **sq, char **array, int s)
+{
+	t_struct2	st;
+
+	st.i = 0;
+	st.init_size = s;
+	st.pos = 0;
+	st.line = 0;
+	while (array[st.i])
+	{
+		while (st.line + width_tetri(array[st.i]) <= s)
+		{
+			while (st.pos + len_tetri(array[st.i]) <= s)
+			{
+				if (cs(sq, array[st.i], st.line, st.pos) == 0 && (s = 0) == 0)
+					sq = put_tetri(sq, array[st.i], &st, 65 + st.i);
+				st.pos++;
+			}
+			st.pos = 0;
+			st.line++;
+		}
+		if ((sq = cant_put(sq, array, &st, s)) == NULL)
+			return (NULL);
+		s = st.init_size;
+	}
+	return (sq);
+}
+
+char		**final_square(char **square, char **array)
 {
 	int		size;
 	char	**final_square;

@@ -6,14 +6,14 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/02 23:33:44 by jcreux            #+#    #+#             */
-/*   Updated: 2019/03/09 16:05:26 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/03/10 17:29:23 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "fillit.h"
 
-static int	find_tetri(char *s)
+int			find_tetri(char *s)
 {
 	int			i;
 	static char	*tetri_array[19] = {O, I, IR, T, TR, HL, HR, S, Z, AL,
