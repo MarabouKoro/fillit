@@ -6,7 +6,7 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/22 01:51:23 by jcreux            #+#    #+#             */
-/*   Updated: 2019/03/11 15:14:15 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/03/11 17:12:54 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static char	*free_strjoin(char *s1, char *s2)
 	return (str);
 }
 
-int			ft_ret(char *s, char **line)
+static int	ft_ret(char *s, char **line)
 {
 	*line = s;
 	return (1);

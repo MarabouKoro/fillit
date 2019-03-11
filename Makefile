@@ -6,7 +6,7 @@
 #    By: jcreux <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/24 05:29:33 by jcreux            #+#    #+#              #
-#    Updated: 2019/03/10 22:11:50 by jcreux           ###   ########.fr        #
+#    Updated: 2019/03/11 17:17:32 by jcreux           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = fillit
 
 CC = gcc
 
-CFLAGS = -Werror -Wextra -Wall -g
+CFLAGS = -Werror -Wextra -Wall
 
 SRCS = valid_line.c \
 	   read.c \

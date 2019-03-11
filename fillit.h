@@ -6,7 +6,7 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 02:15:41 by jcreux            #+#    #+#             */
-/*   Updated: 2019/03/11 16:44:32 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/03/11 17:09:31 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,6 @@ int				find_line(char **square, int letter);
 char			**final_square(char **square, char **array);
 char			**new_square(int size);
 void			error(void);
-int				find_tetri(char *s);
 int				cs(char **square, char *tetri, int line, int pos);
 
 #endif
