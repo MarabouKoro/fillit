@@ -6,7 +6,7 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/08 15:30:57 by jcreux            #+#    #+#             */
-/*   Updated: 2019/03/10 22:26:53 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/03/11 16:46:20 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,31 +24,29 @@ static void	usage(char *str)
 
 int			main(int ac, char **av)
 {
-	int		pos;
-	int		line;
-	int		fd;
-	char	**tab;
-	char	**square;
+	t_struct2	st;
+	char		**tab;
+	char		**square;
 
-	line = 0;
-	fd = open(av[1], O_RDONLY);
+	st.line = 0;
+	st.fd = open(av[1], O_RDONLY);
 	if (ac != 2)
 	{
 		usage(av[0]);
 		return (1);
 	}
-	tab = check_array(array_maker(fd));
+	tab = check_array(array_maker(st.fd));
 	square = final_square(init_square(tab), tab);
 	free(tab);
-	while (square[line])
+	while (square[st.line])
 	{
-		pos = 0;
-		while (square[line][pos])
-			write(1, &square[line][pos++], 1);
-		free(square[line]);
-		line++;
+		st.pos = 0;
+		while (square[st.line][st.pos])
+			write(1, &square[st.line][st.pos++], 1);
+		free(square[st.line]);
+		st.line++;
 	}
 	free(square);
-	close(fd);
+	close(st.fd);
 	return (0);
 }

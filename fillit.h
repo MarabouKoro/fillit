@@ -6,7 +6,7 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 02:15:41 by jcreux            #+#    #+#             */
-/*   Updated: 2019/03/10 19:36:30 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/03/11 16:44:32 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ typedef struct	s_list2
 	int		init_size;
 	int		pos;
 	int		line;
+	int		fd;
 }				t_struct2;
 
 /*
