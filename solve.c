@@ -6,10 +6,12 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 16:10:11 by jcreux            #+#    #+#             */
-/*   Updated: 2019/03/10 19:37:05 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/05/02 04:39:59 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
+#include <stdlib.h>
 #include "fillit.h"
 
 static char	**put_tetri(char **square, char *tetri, t_struct2 *st, int letter)
@@ -85,6 +87,8 @@ static char	**cant_put(char **square, char **array, t_struct2 *st, int size)
 static char	**solve(char **sq, char **array, int s)
 {
 	t_struct2	st;
+	int			line;
+	int			pos;
 
 	st.i = 0;
 	st.init_size = s;
@@ -97,7 +101,22 @@ static char	**solve(char **sq, char **array, int s)
 			while (st.pos + len_tetri(array[st.i]) <= s)
 			{
 				if (cs(sq, array[st.i], st.line, st.pos) == 0 && (s = 0) == 0)
+				{
 					sq = put_tetri(sq, array[st.i], &st, 65 + st.i);
+					line = 0;
+					while (sq[line])
+					{
+						pos = 0;
+						while (sq[line][pos])
+						{
+							write (1, &sq[line][pos++], 1);
+						}
+						line++;
+					}
+					sleep(1);
+					write(1, "\n", 1);
+					system("clear");
+				}
 				st.pos++;
 			}
 			st.pos = 0;
