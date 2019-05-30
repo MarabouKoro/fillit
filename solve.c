@@ -6,7 +6,7 @@
 /*   By: jcreux <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 16:10:11 by jcreux            #+#    #+#             */
-/*   Updated: 2019/05/02 04:39:59 by jcreux           ###   ########.fr       */
+/*   Updated: 2019/05/30 02:45:28 by jcreux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ static char	**solve(char **sq, char **array, int s)
 						}
 						line++;
 					}
-					sleep(1);
+					//usleep(1000000);
 					write(1, "\n", 1);
 					system("clear");
 				}
